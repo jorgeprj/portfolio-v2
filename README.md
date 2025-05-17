@@ -1,30 +1,80 @@
-# Modern dev portfolio
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+# 🧑‍💻 Portfolio Pessoal — v2
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/jorgepires-3055s-projects/v0-modern-dev-portfolio)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/oa6HPx57MGc)
+![Next.js](https://img.shields.io/badge/Next.js-000?logo=next.js\&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-38B2AC?logo=tailwind-css\&logoColor=white)
+![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-000?logo=vercel)
 
-## Overview
+## ✨ Sobre o Projeto
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+![Screenshot](/public/screenshot.png)
 
-## Deployment
+Este é o meu portfólio pessoal — **minimalista, funcional e pensado em cada detalhe**. Criado com foco na clareza das informações e experiência do usuário, ele serve como um espaço para apresentar meus projetos, experiências profissionais, artigos, livros e publicações em blogs.
 
-Your project is live at:
+A estrutura inicial foi gerada com a ajuda do [V0](https://v0.dev), uma IA desenvolvida pela Vercel, e foi **implantada diretamente na plataforma da Vercel**.
 
-**[https://vercel.com/jorgepires-3055s-projects/v0-modern-dev-portfolio](https://vercel.com/jorgepires-3055s-projects/v0-modern-dev-portfolio)**
+> **Versão anterior (v1):**
+> [Clique aqui para acessar o modelo anterior (grid-based)](https://github.com/jorgeprj/my-portfolio)
 
-## Build your app
+---
 
-Continue building your app on:
+## ⚙️ Tecnologias Utilizadas
 
-**[https://v0.dev/chat/projects/oa6HPx57MGc](https://v0.dev/chat/projects/oa6HPx57MGc)**
+* [Next.js](https://nextjs.org/) – Framework React para produção
+* [Tailwind CSS](https://tailwindcss.com/) – Estilização com classes utilitárias
+* [Vercel](https://vercel.com/) – Deploy e hospedagem
+* [Resend](https://resend.com/) – Envio de e-mails via formulário de contato
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## 🆕 Novidades da Versão 2
+
+* ✅ Design reformulado com ainda mais atenção aos detalhes
+* ✅ Sessão de **projetos** com descrições e links
+* ✅ Sessão de **experiências profissionais**
+* ✅ Listagem de **artigos, livros e posts de blog** publicados
+* ✅ **Formulário de contato** funcional, com envio direto para o e-mail via Resend
+
+---
+
+## 📩 Contato
+
+O formulário de contato envia diretamente para meu e-mail utilizando a API da Resend. Isso garante uma comunicação prática e direta com quem visita o portfólio.
+
+---
+
+## 📦 Como Rodar Localmente
+
+```bash
+# Clone o repositório
+git clone https://github.com/seu-usuario/portfolio.git
+cd portfolio
+
+# Instale as dependências
+npm install
+
+# Inicie o servidor de desenvolvimento
+npm run dev
+```
+
+Acesse em: `http://localhost:3000`
+
+---
+
+## 🚀 Deploy
+
+Este projeto está hospedado na [Vercel](https://vercel.com/), com integração contínua ativada. Cada `push` na branch principal gera um novo deploy automaticamente.
+
+---
+
+## 🧱 Layout da Versão 1
+
+A primeira versão deste portfólio foi baseada em um layout grid simples e direto ao ponto. Você pode acessá-la aqui:
+
+🔗 [Portfolio v1](https://github.com/jorgeprj/my-portfolio)
+
+---
+
+## 📝 Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
