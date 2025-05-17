@@ -32,7 +32,7 @@ export function Hero() {
   }
 
   return (
-    <section className="py-20 md:py-28 flex flex-col items-center justify-center min-h-[90vh] text-center">
+    <section className="py-20 md:py-28 flex flex-col items-center justify-center min-h-[90vh] text-center relative">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ export function Hero() {
         className="rounded-full overflow-hidden mb-8 border-4 border-primary/20"
       >
         <Image
-          src="/profile.png"
+          src="/placeholder.svg?height=150&width=150"
           alt="Foto de perfil"
           width={150}
           height={150}
@@ -54,7 +54,7 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-4xl md:text-6xl font-bold mb-4"
       >
-        Olá, sou <span className="text-primary">o Jorge</span>
+        Olá, sou <span className="text-primary">Desenvolvedor</span>
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -62,13 +62,13 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8"
       >
-        Desenvolvedor e Analista de Dados
+        Criando experiências digitais minimalistas e funcionais
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
-        className="flex flex-wrap justify-center gap-4"
+        className="flex flex-wrap justify-center gap-4 mb-16"
       >
         <Button size="lg" onClick={navigateToProjects}>
           Meus Projetos
@@ -85,9 +85,14 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1 }}
-        className="absolute bottom-10"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
       >
-        <Button variant="ghost" size="icon" className="rounded-full animate-bounce" onClick={scrollToAbout}>
+        <Button
+          variant="ghost"
+          size="icon"
+          className="rounded-full animate-bounce bg-background/80 hover:bg-background/90 shadow-sm"
+          onClick={scrollToAbout}
+        >
           <ArrowDown className="h-6 w-6" />
           <span className="sr-only">Rolar para baixo</span>
         </Button>

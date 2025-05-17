@@ -64,7 +64,7 @@ export function Contact() {
       // Mostra mensagem de sucesso
       toast({
         title: "Mensagem enviada!",
-        description: "Sua mensagem foi enviada com sucesso. Entraremos em contato em breve.",
+        description: "Sua mensagem foi enviada com sucesso. Entrarei em contato em breve.",
         variant: "default",
       })
     } catch (error) {
