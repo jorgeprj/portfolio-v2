@@ -10,6 +10,7 @@ import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { CVDownloadButton } from "@/components/cv-download-button"
+import { formatMarkdown } from "@/utils/markdown-formatter"
 
 export default function ExperienceDetails() {
   const params = useParams()
@@ -100,13 +101,10 @@ export default function ExperienceDetails() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-4">Descrição</h2>
-                  <div className="prose dark:prose-invert max-w-none">
-                    {experience.fullDescription?.split("\n\n").map((paragraph, i) => (
-                      <p key={i} className="mb-4 text-lg leading-relaxed">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  <div
+                    className="prose dark:prose-invert max-w-none prose-headings:my-4 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1"
+                    dangerouslySetInnerHTML={{ __html: formatMarkdown(experience.fullDescription || "") }}
+                  />
                 </CardContent>
               </Card>
 

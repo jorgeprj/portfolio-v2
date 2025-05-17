@@ -4,19 +4,23 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { projects } from "@/components/projects"
 import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, ZoomIn } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { useParams, useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { CVDownloadButton } from "@/components/cv-download-button"
+import { ImageModal } from "@/components/image-modal"
+import { formatMarkdown } from "@/utils/markdown-formatter"
 
 export default function ProjectDetails() {
   const params = useParams()
   const router = useRouter()
   const [project, setProject] = useState<any>(null)
   const [loading, setLoading] = useState(true)
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState("")
 
   useEffect(() => {
     if (params.id) {
@@ -32,6 +36,16 @@ export default function ProjectDetails() {
       setLoading(false)
     }
   }, [params.id, router])
+
+  const openImageModal = (imageUrl: string) => {
+    setSelectedImage(imageUrl)
+    setIsImageModalOpen(true)
+  }
+
+  // Função para verificar se um link é válido
+  const isValidLink = (url: string) => {
+    return url && url !== "#" && url !== ""
+  }
 
   if (loading) {
     return (
@@ -70,12 +84,20 @@ export default function ProjectDetails() {
         </div>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-          <div className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg">
+          <div
+            className="relative w-full h-64 md:h-96 mb-8 overflow-hidden rounded-lg cursor-pointer group"
+            onClick={() => openImageModal(project.image)}
+          >
+            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
+              <div className="bg-background/80 p-2 rounded-full">
+                <ZoomIn className="h-6 w-6 text-primary" />
+              </div>
+            </div>
             <Image
               src={project.image || "/placeholder.svg"}
               alt={project.title}
               fill
-              className="object-cover"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
               priority
             />
           </div>
@@ -92,18 +114,22 @@ export default function ProjectDetails() {
               </div>
             </div>
             <div className="flex gap-4">
-              <Button variant="outline" asChild>
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
-                  GitHub
-                </a>
-              </Button>
-              <Button asChild>
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Demo
-                </a>
-              </Button>
+              {isValidLink(project.githubUrl) && (
+                <Button variant="outline" asChild>
+                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                    <Github className="mr-2 h-4 w-4" />
+                    GitHub
+                  </a>
+                </Button>
+              )}
+              {isValidLink(project.liveUrl) && (
+                <Button asChild>
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-4 w-4" />
+                    Demo
+                  </a>
+                </Button>
+              )}
             </div>
           </div>
 
@@ -112,13 +138,10 @@ export default function ProjectDetails() {
               <Card>
                 <CardContent className="p-6">
                   <h2 className="text-2xl font-bold mb-4">Sobre o Projeto</h2>
-                  <div className="prose dark:prose-invert max-w-none">
-                    {project.fullDescription.split("\n\n").map((paragraph: string, i: number) => (
-                      <p key={i} className="mb-4 text-lg leading-relaxed">
-                        {paragraph}
-                      </p>
-                    ))}
-                  </div>
+                  <div
+                    className="prose dark:prose-invert max-w-none prose-headings:my-4 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1"
+                    dangerouslySetInnerHTML={{ __html: formatMarkdown(project.fullDescription) }}
+                  />
                 </CardContent>
               </Card>
 
@@ -126,13 +149,19 @@ export default function ProjectDetails() {
                 <Card>
                   <CardContent className="p-6">
                     <h2 className="text-xl font-bold mb-4">Desafios</h2>
-                    <p className="text-lg">{project.challenges}</p>
+                    <div
+                      className="prose dark:prose-invert max-w-none prose-headings:my-4 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1"
+                      dangerouslySetInnerHTML={{ __html: formatMarkdown(project.challenges) }}
+                    />
                   </CardContent>
                 </Card>
                 <Card>
                   <CardContent className="p-6">
                     <h2 className="text-xl font-bold mb-4">Soluções</h2>
-                    <p className="text-lg">{project.solutions}</p>
+                    <div
+                      className="prose dark:prose-invert max-w-none prose-headings:my-4 prose-p:my-2 prose-ul:my-2 prose-ol:my-2 prose-li:my-1"
+                      dangerouslySetInnerHTML={{ __html: formatMarkdown(project.solutions) }}
+                    />
                   </CardContent>
                 </Card>
               </div>
@@ -141,12 +170,21 @@ export default function ProjectDetails() {
                 <h2 className="text-2xl font-bold mb-4">Screenshots</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {project.screenshots.map((screenshot: string, index: number) => (
-                    <div key={index} className="relative h-48 rounded-lg overflow-hidden">
+                    <div
+                      key={index}
+                      className="relative h-48 rounded-lg overflow-hidden cursor-pointer group"
+                      onClick={() => openImageModal(screenshot)}
+                    >
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 z-10">
+                        <div className="bg-background/80 p-2 rounded-full">
+                          <ZoomIn className="h-6 w-6 text-primary" />
+                        </div>
+                      </div>
                       <Image
                         src={screenshot || "/placeholder.svg"}
                         alt={`Screenshot ${index + 1}`}
                         fill
-                        className="object-cover hover:scale-105 transition-transform"
+                        className="object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                   ))}
@@ -167,23 +205,29 @@ export default function ProjectDetails() {
                       ))}
                     </div>
 
-                    <div className="mt-8">
-                      <h2 className="text-xl font-bold mb-4">Links</h2>
-                      <div className="space-y-2">
-                        <Button variant="outline" size="sm" asChild className="w-full justify-start">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="mr-2 h-4 w-4" />
-                            Repositório no GitHub
-                          </a>
-                        </Button>
-                        <Button variant="outline" size="sm" asChild className="w-full justify-start">
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="mr-2 h-4 w-4" />
-                            Demo ao vivo
-                          </a>
-                        </Button>
+                    {(isValidLink(project.githubUrl) || isValidLink(project.liveUrl)) && (
+                      <div className="mt-8">
+                        <h2 className="text-xl font-bold mb-4">Links</h2>
+                        <div className="space-y-2">
+                          {isValidLink(project.githubUrl) && (
+                            <Button variant="outline" size="sm" asChild className="w-full justify-start">
+                              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                <Github className="mr-2 h-4 w-4" />
+                                Repositório no GitHub
+                              </a>
+                            </Button>
+                          )}
+                          {isValidLink(project.liveUrl) && (
+                            <Button variant="outline" size="sm" asChild className="w-full justify-start">
+                              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                <ExternalLink className="mr-2 h-4 w-4" />
+                                Demo ao vivo
+                              </a>
+                            </Button>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    )}
                   </CardContent>
                 </Card>
 
@@ -204,6 +248,13 @@ export default function ProjectDetails() {
           </div>
         </motion.div>
       </div>
+
+      <ImageModal
+        isOpen={isImageModalOpen}
+        onClose={() => setIsImageModalOpen(false)}
+        imageUrl={selectedImage}
+        alt="Screenshot do projeto"
+      />
     </div>
   )
 }

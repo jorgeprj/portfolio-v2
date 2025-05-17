@@ -26,13 +26,19 @@ export function About() {
           <Card>
             <CardContent className="p-6 md:p-8">
               <p className="text-lg leading-relaxed mb-4">
-                Sou um desenvolvedor apaixonado por criar interfaces limpas e funcionais. Com experiência em
-                desenvolvimento web moderno, busco sempre as melhores práticas e tecnologias para entregar produtos de
-                qualidade.
+			  	Sou um desenvolvedor carioca, apaixonado por códigos desde os 15 anos. Tenho uma 
+				forte afinidade com desenvolvimento Web e, atualmente, estou mergulhado em estudos 
+				sobre Inteligência Artificial, buscando ampliar minhas habilidades e explorar novas 
+				possibilidades tecnológicas. Sou formado em Ciência da Computação pela UFSCar, onde 
+				construí uma base sólida em programação, lógica e resolução de problemas.
               </p>
               <p className="text-lg leading-relaxed">
-                Minha abordagem combina design minimalista com código eficiente, resultando em experiências digitais que
-                são tanto visualmente atraentes quanto tecnicamente sólidas.
+			  	Atualmente, trabalho na Ambar Tech, em São Carlos, com foco em Análise de Dados. 
+				Já atuei no suporte e manutenção do principal aplicativo da empresa, o que me 
+				proporcionou uma compreensão profunda dos sistemas internos. Hoje, faço parte da 
+				equipe de logística, contribuindo com melhorias nos fluxos de dados e na automação 
+				de processos. Sou movido por desafios, aprendizado contínuo e pela vontade de 
+				desenvolver soluções que geram impacto real.
               </p>
             </CardContent>
           </Card>

@@ -11,91 +11,72 @@ import Link from "next/link"
 export const projects = [
   {
     id: 1,
-    title: "Projeto Minimalista",
-    description: "Um site minimalista com design clean e funcionalidades modernas.",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["Next.js", "Tailwind CSS", "TypeScript"],
+    title: "futCo.",
+    description: "Um micro-saas para colecionadores de camisas de futebol.",
+    image: "/futco.png?height=200&width=400",
+    tags: ["ReactJS", "Firebase", "Stripe", "TailwindCSS"],
     githubUrl: "#",
     liveUrl: "#",
-    fullDescription: `Este projeto foi desenvolvido com foco em minimalismo e usabilidade. 
-    Utilizando Next.js e Tailwind CSS, criei uma interface limpa e intuitiva que prioriza o conteúdo.
-    
-    O design segue princípios de espaço em branco estratégico e tipografia cuidadosamente selecionada para garantir legibilidade e hierarquia visual.
-    
-    Funcionalidades incluem:
-    - Tema claro e escuro
-    - Layout responsivo
-    - Animações sutis
-    - Otimização de performance`,
+    fullDescription: `A FutCo. é uma plataforma digital onde apaixonados por futebol podem criar seus perfis e catalogar suas camisas de forma prática, bonita e organizada.
+    A proposta é unir simplicidade, comunidade e paixão pelo futebol, oferecendo um espaço onde cada camisa tem sua história — e cada colecionador, sua identidade.
+    `,
     challenges:
-      "O maior desafio foi equilibrar minimalismo com funcionalidade, garantindo que a interface fosse simples mas completa.",
+      "O maior desafio foi desenvolver um micro-saas do zero: do design à implementação, passando pela integração com o Stripe para pagamentos e Firebase para autenticação e armazenamento de dados.",
     solutions:
-      "Implementei um sistema de design baseado em componentes reutilizáveis e adotei uma abordagem de 'mobile-first' para garantir uma experiência consistente em todos os dispositivos.",
-    screenshots: [
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-    ],
+      "Estamos implementando uma arquitetura escalável, utilizando Firebase para autenticação e armazenamento de dados, e Stripe para pagamentos. O design é responsivo e intuitivo, garantindo uma experiência fluida em dispositivos móveis e desktops.",
+    screenshots: [],
   },
   {
     id: 2,
-    title: "App de Produtividade",
-    description: "Aplicativo para gerenciamento de tarefas com interface intuitiva.",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["React", "Node.js", "MongoDB"],
-    githubUrl: "#",
+    title: "hattrick",
+    description: "Micro-saas para gerenciamento de modo carreira no jogo EA FC 24.",
+    image: "/hattrick.png?height=200&width=400",
+    tags: ["ReactJS", "Node.js", "TailwindCSS", "JSON Server", "JavaScript"],
+    githubUrl: "https://github.com/jorgeprj/hattrick-react",
     liveUrl: "#",
-    fullDescription: `Este aplicativo de produtividade foi desenvolvido para ajudar usuários a gerenciar suas tarefas diárias de forma eficiente.
-    
-    Construído com React no frontend e Node.js com MongoDB no backend, o aplicativo oferece uma experiência fluida e responsiva.
+    fullDescription: `Hattrick é um site baseado em **React** projetado para aprimorar a experiência do modo carreira no EA FC 24. O site utiliza um banco de dados simulado por meio do **JSON Server**,.
     
     Funcionalidades principais:
-    - Criação e gerenciamento de tarefas
-    - Categorização por projetos
-    - Lembretes e notificações
-    - Estatísticas de produtividade
-    - Sincronização entre dispositivos`,
+    - Analise de desempenho do jogador com um perfil completo
+    - Analise do time com um perfil detalhado
+    - Busca de atletas pelo banco de dados`,
     challenges:
-      "Implementar um sistema de sincronização em tempo real que funcionasse mesmo offline foi um desafio significativo.",
+      "Implementar um sistema online onde o jogador de EA FC 24, pudesse inserir seu modo carreira, e ter a experiencia real de qualquer clube profissional no mundo. Aprimorando as estatisticas e dados, misturando dados reais e criados pelo jogo. ",
     solutions:
-      "Utilizei uma combinação de service workers e uma arquitetura de sincronização otimista para garantir que os usuários pudessem continuar trabalhando mesmo sem conexão.",
+      "Utilizei o ReactJS para criar uma interface de usuário interativa e responsiva, permitindo que os usuários visualizassem e interagissem com os dados do jogo. O JSON Server foi utilizado para simular um banco de dados, permitindo que os usuários armazenassem e recuperassem informações sobre seus jogadores e times. A integração entre o React e o JSON Server foi feita através de chamadas API RESTful, garantindo uma comunicação eficiente entre o front-end e o back-end.",
     screenshots: [
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
+      "/hattrick2.png?height=300&width=500",
+      "/hattrick1.png?height=300&width=500",
+      "/hattrick3.png?height=300&width=500",
+      "/hattrick5.png?height=300&width=500",
+      "/hattrick6.png?height=300&width=500",
     ],
   },
   {
     id: 3,
-    title: "E-commerce Moderno",
-    description: "Plataforma de e-commerce com design responsivo e experiência de usuário otimizada.",
-    image: "/placeholder.svg?height=200&width=400",
-    tags: ["Next.js", "Stripe", "Supabase"],
-    githubUrl: "#",
-    liveUrl: "#",
-    fullDescription: `Esta plataforma de e-commerce foi desenvolvida com foco em performance e experiência do usuário.
-    
-    Utilizando Next.js para renderização híbrida, Stripe para processamento de pagamentos e Supabase para backend, criei uma solução completa e escalável.
-    
-    Características principais:
-    - Carregamento rápido de páginas
-    - Checkout simplificado
-    - Sistema de busca avançado
-    - Gerenciamento de estoque
-    - Análise de dados de vendas`,
+    title: "Kings League REST API",
+    description: "API criada com os dados retirados a partir do site oficial da Kings League.",
+    image: "/kings.jpg?height=200&width=400",
+    tags: ["Python", "Web Scraping", "Flask", "SQLite", "REST API", "OnRender"],
+    githubUrl: "https://github.com/jorgeprj/kings-league-api",
+    liveUrl: "https://kings-league-api.onrender.com/",
+    fullDescription: "A *Kings World Cup 2024* API é uma API RESTful desenvolvida em *Python* com o objetivo de promover a Kings League por meio da disponibilização de dados dos jogadores da competição. O projeto é fan-made e utiliza web scraping para extrair informações diretamente do site oficial da liga. Com endpoints organizados e bem documentados, a API permite consultar dados detalhados dos jogadores, servindo como ferramenta educativa e demonstrativa de desenvolvimento back-end.",
     challenges:
-      "Otimizar a performance mantendo uma experiência rica em recursos foi o principal desafio deste projeto.",
+      `Durante o desenvolvimento, os principais desafios envolveram a extração confiável de dados via **web scraping**, o tratamento de possíveis inconsistências nas informações obtidas, e a proteção da API contra uso indevido. Além disso, foi necessário lidar com limitações de performance e escalabilidade em ambiente gratuito, garantindo estabilidade e respostas rápidas durante ouso.`,
     solutions:
-      "Implementei estratégias de carregamento progressivo, SSR/ISR para páginas críticas e otimização de imagens para garantir tempos de carregamento rápidos mesmo em conexões lentas.",
+      `Para superar esses desafios, foram adotadas boas práticas de design REST, tratamento robusto de dados coletados, e a desativação de endpoints sensíveis **(POST, PATCH, DELETE)** por motivos de segurança. A hospedagem foi realizada na plataforma Render, garantindo fácil acesso público, enquanto a documentação clara torna a API acessível para desenvolvedores interessados em explorar o projeto.`,
     screenshots: [
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
-      "/placeholder.svg?height=300&width=500",
+      "/kings1.png?height=300&width=500"
     ],
   },
 ]
 
 export function Projects() {
+  // Função para verificar se um link é válido
+  const isValidLink = (url: string) => {
+    return url && url !== "#" && url !== ""
+  }
+
   return (
     <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto">
@@ -154,18 +135,27 @@ export function Projects() {
                 </CardContent>
                 <CardFooter className="p-6 pt-0 mt-auto">
                   <div className="flex gap-3 w-full">
-                    <Button variant="outline" size="sm" asChild className="flex-1">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="h-4 w-4 mr-1" />
-                        GitHub
-                      </a>
-                    </Button>
-                    <Button size="sm" asChild className="flex-1">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Demo
-                      </a>
-                    </Button>
+                    {isValidLink(project.githubUrl) && (
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        asChild
+                        className={isValidLink(project.liveUrl) ? "flex-1" : "w-full"}
+                      >
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="h-4 w-4 mr-1" />
+                          GitHub
+                        </a>
+                      </Button>
+                    )}
+                    {isValidLink(project.liveUrl) && (
+                      <Button size="sm" asChild className={isValidLink(project.githubUrl) ? "flex-1" : "w-full"}>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-1" />
+                          Demo
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardFooter>
               </Card>
