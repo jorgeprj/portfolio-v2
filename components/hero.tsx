@@ -40,7 +40,7 @@ export function Hero() {
         className="rounded-full overflow-hidden mb-8 border-4 border-primary/20"
       >
         <Image
-          src="/placeholder.svg?height=150&width=150"
+          src="/profile.png?height=150&width=150"
           alt="Foto de perfil"
           width={150}
           height={150}
