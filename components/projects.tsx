@@ -17,6 +17,7 @@ export const projects = [
     tags: ["ReactJS", "Firebase", "Stripe", "TailwindCSS"],
     githubUrl: "#",
     liveUrl: "#",
+    status: "coming-soon",
     fullDescription: `A FutCo. é uma plataforma digital onde apaixonados por futebol podem criar seus perfis e catalogar suas camisas de forma prática, bonita e organizada.
     A proposta é unir simplicidade, comunidade e paixão pelo futebol, oferecendo um espaço onde cada camisa tem sua história — e cada colecionador, sua identidade.
     `,
@@ -77,6 +78,21 @@ export function Projects() {
     return url && url !== "#" && url !== ""
   }
 
+  const renderStatusBadge = (status?: string) => {
+    if (!status) return null
+
+    switch (status) {
+      case "coming-soon":
+        return (
+          <Badge className="absolute top-3 right-3 z-10 bg-primary text-primary-foreground font-medium">Em breve</Badge>
+        )
+      case "launch":
+        return <Badge className="absolute top-3 right-3 z-10 bg-green-600 text-white font-medium hover:bg-green-400">Lançamento</Badge>
+      default:
+        return null
+    }
+  }
+
   return (
     <section id="projects" className="py-20">
       <div className="max-w-6xl mx-auto">
@@ -99,7 +115,9 @@ export function Projects() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="group h-full overflow-hidden flex flex-col hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-primary/20">
+              <Card className="group h-full overflow-hidden flex flex-col hover:shadow-lg transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative">
+                {/* Tag de status (Em breve/Lançamento) */}
+                {renderStatusBadge(project.status)}
                 <div className="relative h-48 overflow-hidden">
                   <Image
                     src={project.image || "/placeholder.svg"}
