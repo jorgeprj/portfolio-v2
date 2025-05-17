@@ -54,7 +54,7 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-4xl md:text-6xl font-bold mb-4"
       >
-        Olá, sou <span className="text-primary">Desenvolvedor</span>
+        Olá, sou o <span className="text-primary">Jorge Pires</span>
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 20 }}
@@ -62,7 +62,7 @@ export function Hero() {
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-xl md:text-2xl text-muted-foreground max-w-2xl mb-8"
       >
-        Criando experiências digitais minimalistas e funcionais
+        Analista de dados e desenvolvedor web
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
